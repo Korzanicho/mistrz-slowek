@@ -1,0 +1,155 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100%;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    margin:0;
+    background: #4e54c8;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #8f94fb, #4e54c8);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #8f94fb, #4e54c8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+#app{
+  width:100%;
+    height:100%;
+    display:flex;
+}
+
+h1,h2,h3,h4{
+    color:#eee;
+    text-align:center;
+    margin:0;
+}
+
+h4{
+    font-size: 1.23em;
+}
+
+.info{
+    background:#333;
+    padding: 5px 0;
+    margin: 8px 0;
+    transition:.7s;
+}
+
+.info--standard{
+    background:transparent;
+}
+
+.info--success{
+    color: #00bd00;
+}
+
+.info--fail{
+    color:red;
+}
+
+h2{
+    padding: 10px;
+    padding-right: 20px;
+    text-align:right;
+}
+
+.game{
+    width:80%;
+}
+
+.full{
+    width: 100%;
+}
+
+.dictionary{
+    width:20%;
+    background: rgba(0,0,0,.2);
+    height:100%;
+    border-left: 8px dashed #222;
+    padding: 25px;
+    display: none;
+}
+
+.dictionary th{
+    color:#fff;
+}
+
+.dictionary td{
+    color: #ddd;
+}
+
+.wrapper{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 25px;
+}
+
+.task{
+    width:350px;
+    height:175px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+}
+
+.task--foreign{
+    background-image: url('../uk.png');
+}
+
+.task--local{
+    background-image: url('../polska.png');
+}
+
+.task__equals{
+    font-size: 4em;
+    color: #fff;
+    padding: 0 25px;
+}
+
+.btn{
+    background: transparent;
+    color:#fff;
+    border:2px solid #fff;
+    padding: 8px 17px;
+    border-radius: 10px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color .7s, color .28s, opacity .3s;
+}
+
+.btn:not(:disabled):hover{
+    background: #fff;
+    color: #4e54c8;
+}
+
+.btn:disabled{
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+
+.field{
+    padding: 5px 10px;
+    border-radius: 9px;
+    border: 0;
+    -webkit-box-shadow: 0px 10px 84px -3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 10px 84px -3px rgba(0,0,0,0.75);
+    box-shadow: 0px 10px 84px -3px rgba(0,0,0,0.75);
+    text-align: center;
+}
+
+.result{
+    text-align:center;
+    background:#222;
+    padding: 30px 60px;
+}
+
+.visible{
+    display: block;
+}
+

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Mistrz słówek</title>
+    <link rel="stylesheet" href="style/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div id="app">
+        <main class="game" :class="{full: words.length<1}">
+            <h2>Wynik: {{result}}pkt</h2>
+            <h1>Mistrz słówek</h1>
+            <h3 class="info info--standard" v-show="lastAnswer === null">Sprawdź się!</h3>
+            <h3 class="info info--success" v-show="lastAnswer === true">Doobrze +1pkt!</h3>
+            <h3 class="info info--fail" v-show="lastAnswer === false">Błędna odpowiedź -0.5pkt!</h3>
+            <div class="canvas" v-if="dictionary.length >= 1">
+                <div class="wrapper">
+                    <div class="task task--local">
+                        <input
+                                class="field field--local"
+                                type="text"
+                                v-model="currentWord"
+                                disabled/>
+                    </div>
+                    <div class="task__equals">
+                        =
+                    </div>
+                    <div class="task task--foreign">
+                        <input
+                                class="field field--foreign"
+                                v-model="answer"
+                                @keyup.enter="answer.length < 2 ? '' : checkAnswer()"
+                                type="text"/>
+                    </div>
+                </div>
+                <div class="wrapper">
+                    <button
+                            @click="checkAnswer"
+                            :disabled="answer.length < 2"
+                            class="btn"
+                        >Sprawdź</button>
+                </div>
+            </div>
+            <div v-else>
+                <h2 class="result">Gratulacje! Ukończyłeś rozgrywkę z wynikiem {{result}}pkt!</h2>
+                <div class="wrapper">
+                    <button class="btn" @click="initialState">Zagraj jeszcze raz</button>
+                </div>
+            </div>
+        </main>
+        <aside class="dictionary" :class="{ visible: words.length>=1 }">
+            <h4>Słowniczek</h4>
+            <hr>
+            <table>
+                <tr v-for="word in words">
+                    <td>
+                        {{ word[1] }}
+                    </td>
+                    <th>
+                        {{word[0]}}
+                    </th>
+                </tr>
+            </table>
+        </aside>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
